@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4-DOF Robotic Arm | Owen Koehler</title>
+  <meta name="description" content="A 3D-printed 4-DOF robotic arm with cycloidal reducers, inverse kinematics, and a custom browser-based controller.">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container">
+      <a class="brand" href="../index.html">Owen Koehler</a>
+      <ul>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="project-hero">
+    <div class="container">
+      <a class="back" href="../index.html#projects">← All projects</a>
+      <div class="eyebrow">Independent Project · Apr – Aug 2026</div>
+      <h1>4-DOF Robotic Arm</h1>
+      <p class="lead">
+        I designed, 3D-printed, and built this desktop robotic arm for under $200. It uses custom cycloidal reducers,
+        inverse kinematics, modified GRBL firmware, and a browser-based controller I wrote for programming
+        pick-and-place routes.
+      </p>
+      <ul class="tags">
+        <li>SolidWorks</li><li>Cycloidal Drives</li><li>NEMA 17 Steppers</li><li>Inverse Kinematics</li>
+        <li>GRBL / G-code</li><li>C++</li><li>3D Printing</li>
+      </ul>
+
+      <div class="stats">
+        <div class="stat"><div class="value">270 mm</div><div class="label">Reach</div></div>
+        <div class="stat"><div class="value">~500 g</div><div class="label">Payload</div></div>
+        <div class="stat"><div class="value">~1 mm</div><div class="label">Repeatability</div></div>
+        <div class="stat"><div class="value">&lt; $200</div><div class="label">Total cost</div></div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="feature">
+        <video controls playsinline preload="metadata" poster="../assets/img/arm-demo-poster.jpg">
+          <source src="../assets/video/arm-demo.mp4" type="video/mp4">
+          Your browser does not support embedded video.
+        </video>
+      </div>
+      <p class="muted" style="margin-top:10px;font-size:.9rem;">The arm running a recorded pick-and-place route from the controller.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container prose">
+      <h2>Overview</h2>
+      <p>
+        I wanted to build an arm that behaves like a real industrial robot while staying cheap and printable at home.
+        The main design problem was getting enough torque and stiffness out of hobby-grade NEMA 17 steppers without
+        adding backlash. I solved it by designing my own cycloidal reducers and building each joint as its own actuator.
+      </p>
+
+      <h2>Mechanical Design</h2>
+      <ul>
+        <li><strong>Cycloidal reducers:</strong> I designed cycloidal gearboxes for the NEMA 17 steppers to get a
+          high reduction ratio with very little backlash. The joints can still be backdriven by hand.</li>
+        <li><strong>Modular actuators:</strong> The base and shoulder joints are self-contained, bearing-supported
+          modules that bolt together. I weighed each module during the build to keep the arm's mass in check.</li>
+        <li><strong>Compliant gripper:</strong> A servo drives a geared parallel-linkage gripper. Its flexible ribbed
+          fingers conform to the object for a secure grip.</li>
+        <li><strong>Fully 3D-printed structure:</strong> All structural parts were designed in CAD and printed,
+          which kept the total cost under $200.</li>
+      </ul>
+
+      <div class="gallery">
+        <figure><img src="../assets/img/arm-base-reducer.jpg" alt="Base cycloidal reducer on a scale reading 187 g"><figcaption>Base cycloidal reducer (187 g)</figcaption></figure>
+        <figure><img src="../assets/img/arm-shoulder-actuator.jpg" alt="Shoulder actuator on a scale reading 569 g"><figcaption>Shoulder actuator module (569 g)</figcaption></figure>
+        <figure><img src="../assets/img/arm-base-shoulder.jpg" alt="Assembled base and shoulder joints"><figcaption>Base and shoulder assembly during the build</figcaption></figure>
+        <figure><img src="../assets/img/arm-gripper.jpg" alt="Servo-driven compliant gripper"><figcaption>Servo-driven compliant gripper</figcaption></figure>
+        <figure><img src="../assets/img/arm-completed.jpg" alt="Completed robotic arm"><figcaption>The completed arm</figcaption></figure>
+        <figure><img src="../assets/img/arm-with-gui.jpg" alt="Robotic arm next to a laptop running the controller GUI"><figcaption>The arm with the controller running on a laptop</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container prose">
+      <h2>Controls &amp; Software</h2>
+      <ul>
+        <li><strong>Firmware:</strong> The arm runs GRBL on an Arduino with a CNC shield and stepper drivers. I modified
+          the firmware so the gripper servo is controlled by the same command stream as the steppers.</li>
+        <li><strong>Inverse kinematics:</strong> I implemented IK so I can command the arm to a target XYZ position.
+          The solver checks whether the point is reachable before it moves the arm.</li>
+        <li><strong>Custom controller GUI:</strong> I wrote a browser app that connects to the arm over USB serial.
+          It shows a live 3D model of the arm and has these tabs:
+          <ul>
+            <li><em>Jog:</em> move each joint, set the homing position, and open or close the gripper</li>
+            <li><em>Move / IK:</em> go to specific joint angles or solve for an XYZ target</li>
+            <li><em>Routes:</em> save waypoints with gripper actions, then play back a pick-and-place route</li>
+            <li><em>Config:</em> load a URDF model and set speed, acceleration, and gearing for each joint</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <div class="feature" style="margin-top:28px;">
+        <video controls playsinline preload="metadata" poster="../assets/img/arm-gui-poster.jpg">
+          <source src="../assets/video/arm-gui-recording.mp4" type="video/mp4">
+          Your browser does not support embedded video.
+        </video>
+      </div>
+      <p class="muted" style="margin-top:10px;font-size:.9rem;">Screen recording of a route being programmed and played back in the controller.</p>
+
+      <div class="gallery wide">
+        <figure><img src="../assets/img/gui-jog.jpg" alt="Controller Jog tab"><figcaption>Jog tab: joint control, homing, and gripper</figcaption></figure>
+        <figure><img src="../assets/img/gui-ik.jpg" alt="Controller Move / IK tab"><figcaption>Move / IK tab: joint-angle moves and XYZ inverse kinematics</figcaption></figure>
+        <figure><img src="../assets/img/gui-config.jpg" alt="Controller Config tab"><figcaption>Config tab: URDF model, motion limits, and joint gearing</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="next-project">
+        <a href="../index.html#projects">← All projects</a>
+        <a href="abbott-lvad-fixture.html">Next: Automated LVAD Power Cycling Fixture →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <span>© <span id="year"></span> Owen Koehler</span>
+      <a href="mailto:koehler.o@northeastern.edu">koehler.o@northeastern.edu</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

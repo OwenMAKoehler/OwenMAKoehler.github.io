@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automated LVAD Power Cycling Fixture | Owen Koehler</title>
+  <meta name="description" content="An automated battery power cycling fixture for LVAD testing, completed during a Systems Engineering Co-op at Abbott Heart Failure.">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container">
+      <a class="brand" href="../index.html">Owen Koehler</a>
+      <ul>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="project-hero">
+    <div class="container">
+      <a class="back" href="../index.html#projects">← All projects</a>
+      <div class="eyebrow">Abbott Heart Failure · Systems Engineering Co-op · Jan – Aug 2026</div>
+      <h1>Automated LVAD Power Cycling Fixture</h1>
+      <p class="lead">
+        This fixture charges and drains LVAD batteries over and over to measure how their capacity degrades.
+        The project had been stalled since 2023. I led a team of four co-ops to redesign the hardware, rewrite
+        the firmware, and get it running without an operator.
+      </p>
+      <ul class="tags">
+        <li>Arduino / C++</li><li>Embedded Systems</li><li>Relay Control</li><li>Data Logging</li>
+        <li>Hardware Design</li><li>Verification Testing</li><li>Team Leadership</li>
+      </ul>
+
+      <div class="stats">
+        <div class="stat"><div class="value">~$750K</div><div class="label">Estimated annual savings</div></div>
+        <div class="stat"><div class="value">0–5</div><div class="label">Batteries tested at once, set at runtime</div></div>
+        <div class="stat"><div class="value">4</div><div class="label">Co-ops led</div></div>
+        <div class="stat"><div class="value">0</div><div class="label">Operator interventions needed</div></div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="gallery" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        <figure><img src="../assets/img/abbott-front.jpg" alt="Fixture enclosure with LCD reading 'Draining FB3 Watching...'"><figcaption>Front panel: status LCD, rotary encoder input, and controller / power connections</figcaption></figure>
+        <figure><img src="../assets/img/abbott-interior.jpg" alt="Fixture interior wiring with microcontroller and relay board"><figcaption>Interior: microcontroller, relay board, power regulation, and harnessing</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container prose">
+      <h2>The Problem</h2>
+      <p>
+        Testing LVAD batteries over their lifetime means running them through thousands of charge and discharge
+        cycles. Before this project, an operator had to step in by hand to keep each test going. An automated
+        fixture had been started to fix this, but it had been stalled since 2023.
+      </p>
+
+      <h2>What I Did</h2>
+      <ul>
+        <li><strong>Led the team:</strong> I coordinated four co-ops to finish the fixture and took it from a stalled
+          prototype to a working test system that runs on its own.</li>
+        <li><strong>Redesigned the hardware:</strong> I added a microSD data-logging system and a rotary encoder with
+          a push-button. With these, operators can configure a test at the fixture itself, which wasn't possible
+          before.</li>
+        <li><strong>Rewrote the firmware from scratch:</strong> I rebuilt the control software in Arduino C++ with a
+          modular architecture. It adapts to anywhere from 0 to 5 batteries based on what the user enters.</li>
+        <li><strong>Built automatic logging:</strong> The fixture writes data and debug logs to microSD in a format
+          that opens directly in Excel. Engineers can then plot battery capacity against cycle count.</li>
+      </ul>
+
+      <h2>Result</h2>
+      <p>
+        The fixture now runs power-cycling tests with no operator involvement, saving an estimated
+        <strong>$750K per year</strong>. Because the architecture is modular, the fixture can take on new test
+        configurations without being redesigned.
+      </p>
+
+      <h2>Other Co-op Work</h2>
+      <p>
+        I also calibrated equipment and ran HeartMate 3 LVAD verification tests. I ran outflow graft permeability
+        tests as well, which evaluate how the sealant performs under physiological flow.
+      </p>
+
+      <p class="note">Some details are left out to protect Abbott's proprietary and confidential information.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="next-project">
+        <a href="../index.html#projects">← All projects</a>
+        <a href="robotic-arm.html">Next: 4-DOF Robotic Arm →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <span>© <span id="year"></span> Owen Koehler</span>
+      <a href="mailto:koehler.o@northeastern.edu">koehler.o@northeastern.edu</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
