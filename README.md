@@ -1,8 +1,8 @@
 # Owen Koehler — Engineering Portfolio
 
-**🔗 [owenmakoehler.github.io](https://owenmakoehler.github.io)**
+**[owenmakoehler.github.io](https://owenmakoehler.github.io)**
 
-I'm a Mechanical Engineering student at Northeastern University (Class of 2028) and a former Systems Engineering
+I'm a third-year Mechanical Engineering student at Northeastern University and a former Systems Engineering
 Co-op at Abbott Heart Failure. This site showcases the hardware, firmware, and software projects I've built, with
 photos, videos, and write-ups for each one.
 
@@ -21,13 +21,12 @@ A 3D-printed desktop robotic arm built for under $200, with a 270 mm reach, ~500
 ### [Automated LVAD Power Cycling Fixture](https://owenmakoehler.github.io/projects/abbott-lvad-fixture.html)
 *Abbott Heart Failure, Systems Engineering Co-op · Jan – Aug 2026*
 
-A test fixture that repeatedly charges and drains LVAD batteries to track capacity degradation over time.
+A test fixture that automates power cycling on an LVAD system which enables long term testing without operator intervention.
 - Led a team of 4 co-ops to revive a project that had been stalled since 2023
 - Added microSD data logging and rotary-encoder input so tests can be configured at the fixture
 - Rewrote the Arduino C++ firmware from scratch with a modular design that handles 0 to 5 batteries
 - Eliminated manual operator intervention, saving an estimated $750K per year
 
-More projects coming soon.
 
 ## Skills
 
@@ -35,12 +34,10 @@ More projects coming soon.
 - **Fabrication:** 3D Printing (SLA/FDM), CNC Router, Laser Cutting, MIG Welding, Soldering
 - **Engineering:** FEA, Inverse Kinematics, Embedded Systems, Stepper Motor Control
 
-## About This Site
 
-Built from scratch with plain HTML, CSS, and JavaScript (no frameworks) and hosted on GitHub Pages.
 
 ## Contact
 
-I'm open to co-op and internship opportunities in mechanical, robotics, and systems engineering.
+I'm open to co-op and internship opportunities, feel free to reach out to me.
 
-📧 [koehler.o@northeastern.edu](mailto:koehler.o@northeastern.edu) · 💼 [LinkedIn](https://www.linkedin.com/in/owen-koehler-593384338)
+[koehler.o@northeastern.edu](mailto:koehler.o@northeastern.edu) · [LinkedIn](https://www.linkedin.com/in/owen-koehler-593384338)

@@ -5,80 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Owen Koehler | Mechanical Engineering Portfolio</title>
   <meta name="description" content="Engineering portfolio of Owen Koehler, Mechanical Engineering student at Northeastern University.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <nav class="nav">
     <div class="container">
-      <a class="brand" href="index.html">Owen Koehler</a>
-      <ul>
+      <ul class="nav-links">
+        <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
       </ul>
+      <a class="brand" href="index.html">Owen Koehler</a>
+      <div class="nav-icons">
+        <a href="https://www.linkedin.com/in/owen-koehler-593384338" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        </a>
+        <a href="mailto:koehler.o@northeastern.edu" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        </a>
+      </div>
     </div>
   </nav>
 
   <header class="hero">
     <div class="container">
-      <div class="eyebrow">Mechanical Engineering · Northeastern University</div>
-      <h1>Hi, I'm Owen.<br>I design and build electromechanical systems.</h1>
-      <p class="lead">
-        I'm a Mechanical Engineering student at Northeastern (Class of 2028) and a former Systems Engineering
-        Co-op at Abbott Heart Failure. I like projects that combine mechanical design, electronics, and code.
-      </p>
-      <div class="buttons">
-        <a class="btn primary" href="#projects">View Projects</a>
-        <a class="btn" href="https://www.linkedin.com/in/owen-koehler-593384338" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
-          LinkedIn
-        </a>
+      <!-- Swap in a headshot here if you like: assets/img/headshot.jpg -->
+      <img class="hero-photo" src="assets/img/arm-demo-poster.jpg" alt="Owen's 3D-printed robotic arm on a table next to a laptop running its controller">
+      <div class="hero-text">
+        <h1>I'm Owen Koehler, a mechanical engineer.</h1>
+        <p>
+          I'm a third-year Mechanical Engineering student at Northeastern University and a former Systems Engineering
+          Co-op at Abbott Heart Failure. I build things where mechanical design, electronics, and code have to work together.
+        </p>
+        <div class="pill-stack">
+          <a class="pill" href="#projects">Projects</a>
+          <a class="pill" href="https://www.linkedin.com/in/owen-koehler-593384338" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="pill" href="mailto:koehler.o@northeastern.edu">Email me</a>
+        </div>
       </div>
     </div>
   </header>
 
-  <section id="projects">
+  <section class="section" id="projects">
     <div class="container">
-      <div class="section-head">
-        <div class="eyebrow">Selected Work</div>
-        <h2>Projects</h2>
-      </div>
+      <h2>Projects</h2>
+      <div class="tiles">
+        <!-- To add a project: copy one <article class="tile"> block and point it at a new page in /projects -->
+        <article class="tile">
+          <a href="projects/robotic-arm.html"><img src="assets/img/arm-completed.jpg" alt="3D-printed 4-DOF robotic arm with gripper"></a>
+          <h3><a href="projects/robotic-arm.html">4-DOF Robotic Arm.</a></h3>
+          <div class="where">Independent project, 2026</div>
+          <p>A 3D-printed arm with a 270 mm reach, ~500 g payload, and ~1 mm repeatability, built for under $200 and
+            driven by a controller I wrote.</p>
+          <a class="pill" href="projects/robotic-arm.html">Learn more</a>
+        </article>
 
-      <div class="grid">
-        <!-- To add a project: copy one <a class="card"> block, then point it at a new page in /projects -->
-        <a class="card" href="projects/robotic-arm.html">
-          <img src="assets/img/arm-completed.jpg" alt="3D-printed 4-DOF robotic arm with gripper">
-          <div class="body">
-            <div class="meta">Independent Project · Apr – Aug 2026</div>
-            <h3>4-DOF Robotic Arm</h3>
-            <ul class="tags"><li>Cycloidal Drives</li><li>Inverse Kinematics</li><li>GRBL</li><li>3D Printing</li></ul>
-            <p>A 3D-printed arm with a 270 mm reach, ~500 g payload, and ~1 mm repeatability for under $200. I also
-              wrote a custom browser GUI for jogging, IK moves, and pick-and-place routes.</p>
-            <span class="more">View project →</span>
-          </div>
-        </a>
-
-        <a class="card" href="projects/abbott-lvad-fixture.html">
-          <img class="logo" src="assets/img/abbott-logo.svg" alt="Abbott logo">
-          <div class="body">
-            <div class="meta">Abbott Heart Failure · Jan – Aug 2026</div>
-            <h3>Automated LVAD Power Cycling Fixture</h3>
-            <ul class="tags"><li>Arduino / C++</li><li>Embedded Systems</li><li>Data Logging</li><li>Team Lead</li></ul>
-            <p>I led a team of 4 co-ops to finish a battery power-cycling test fixture that had been stalled since 2023.
-              We removed the need for an operator, saving an estimated $750K per year.</p>
-            <span class="more">View project →</span>
-          </div>
-        </a>
+        <article class="tile">
+          <a href="projects/abbott-lvad-fixture.html"><img class="logo" src="assets/img/abbott-logo.svg" alt="Abbott logo"></a>
+          <h3><a href="projects/abbott-lvad-fixture.html">LVAD Power Cycling Fixture.</a></h3>
+          <div class="where">Abbott Heart Failure, 2026</div>
+          <p>I led a team of 4 co-ops to finish a fixture that automates LVAD power cycling for long-term testing,
+            saving an estimated $750K per year.</p>
+          <a class="pill" href="projects/abbott-lvad-fixture.html">Learn more</a>
+        </article>
       </div>
     </div>
   </section>
 
-  <section id="about">
+  <section class="section" id="about">
     <div class="container about">
       <div>
-        <div class="eyebrow">About</div>
-        <h2>About Me</h2>
+        <h2>About me</h2>
         <p>
           I study Mechanical Engineering at Northeastern University (GPA 3.9). My coursework includes Dynamics,
           Fluid Mechanics, Thermodynamics, and Mechanics of Materials. Outside class I work on vehicle dynamics R&amp;D
@@ -90,31 +91,24 @@
           Away from engineering, I rock climb and play basketball.
         </p>
       </div>
-      <div>
-        <div class="skill-group">
-          <h3>CAD &amp; Software</h3>
-          <ul class="tags"><li>SolidWorks (CSWA)</li><li>Fusion 360</li><li>AutoCAD</li><li>C++ (Arduino)</li><li>MATLAB</li></ul>
-        </div>
-        <div class="skill-group">
-          <h3>Fabrication</h3>
-          <ul class="tags"><li>3D Printing (SLA/FDM)</li><li>CNC Router</li><li>Laser Cutting</li><li>MIG Welding</li><li>Soldering</li></ul>
-        </div>
-        <div class="skill-group">
-          <h3>Engineering</h3>
-          <ul class="tags"><li>FEA</li><li>Inverse Kinematics</li><li>Embedded Systems</li><li>Stepper Motor Control</li></ul>
-        </div>
-      </div>
+      <dl class="skills">
+        <dt>CAD &amp; software</dt>
+        <dd>SolidWorks (CSWA), Fusion 360, AutoCAD, C++ (Arduino), MATLAB</dd>
+        <dt>Fabrication</dt>
+        <dd>3D printing (SLA/FDM), CNC router, laser cutting, MIG welding, soldering</dd>
+        <dt>Engineering</dt>
+        <dd>FEA, inverse kinematics, embedded systems, stepper motor control</dd>
+      </dl>
     </div>
   </section>
 
-  <section id="contact">
+  <section class="section contact" id="contact">
     <div class="container">
-      <div class="eyebrow">Contact</div>
-      <h2>Let's Talk</h2>
-      <p class="muted">I'm open to co-op and internship opportunities in mechanical, robotics, and systems engineering.</p>
-      <div class="buttons">
-        <a class="btn primary" href="mailto:koehler.o@northeastern.edu">koehler.o@northeastern.edu</a>
-        <a class="btn" href="https://www.linkedin.com/in/owen-koehler-593384338" target="_blank" rel="noopener">LinkedIn</a>
+      <h2>Let's talk.</h2>
+      <p class="secondary">I'm open to co-op and internship opportunities. Feel free to reach out.</p>
+      <div class="pill-stack">
+        <a class="pill" href="mailto:koehler.o@northeastern.edu">Email me</a>
+        <a class="pill" href="https://www.linkedin.com/in/owen-koehler-593384338" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </section>
@@ -122,7 +116,7 @@
   <footer>
     <div class="container">
       <span>© <span id="year"></span> Owen Koehler</span>
-      <span>Boston, MA · Palo Alto, CA</span>
+      <span>Boston, MA and Palo Alto, CA</span>
     </div>
   </footer>
 

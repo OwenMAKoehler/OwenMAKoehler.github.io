@@ -4,65 +4,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Automated LVAD Power Cycling Fixture | Owen Koehler</title>
-  <meta name="description" content="An automated battery power cycling fixture for LVAD testing, completed during a Systems Engineering Co-op at Abbott Heart Failure.">
+  <meta name="description" content="An automated LVAD power cycling fixture for long-term testing, completed during a Systems Engineering Co-op at Abbott Heart Failure.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
   <nav class="nav">
     <div class="container">
-      <a class="brand" href="../index.html">Owen Koehler</a>
-      <ul>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
         <li><a href="../index.html#projects">Projects</a></li>
         <li><a href="../index.html#about">About</a></li>
-        <li><a href="../index.html#contact">Contact</a></li>
       </ul>
+      <a class="brand" href="../index.html">Owen Koehler</a>
+      <div class="nav-icons">
+        <a href="https://www.linkedin.com/in/owen-koehler-593384338" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        </a>
+        <a href="mailto:koehler.o@northeastern.edu" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        </a>
+      </div>
     </div>
   </nav>
 
-  <header class="project-hero">
+  <header class="project-head">
     <div class="container">
-      <a class="back" href="../index.html#projects">← All projects</a>
-      <div class="eyebrow">Abbott Heart Failure · Systems Engineering Co-op · Jan – Aug 2026</div>
-      <h1>Automated LVAD Power Cycling Fixture</h1>
+      <h1>LVAD Power Cycling Fixture.</h1>
+      <div class="where">Abbott Heart Failure, Systems Engineering Co-op, January to August 2026</div>
       <p class="lead">
-        This fixture charges and drains LVAD batteries over and over to measure how their capacity degrades.
-        The project had been stalled since 2023. I led a team of four co-ops to redesign the hardware, rewrite
-        the firmware, and get it running without an operator.
+        This fixture automates power cycling on an LVAD system, which makes long-term testing possible without an
+        operator. The project had been stalled since 2023. I led a team of four co-ops to redesign the hardware,
+        rewrite the firmware, and get it running.
       </p>
-      <ul class="tags">
-        <li>Arduino / C++</li><li>Embedded Systems</li><li>Relay Control</li><li>Data Logging</li>
-        <li>Hardware Design</li><li>Verification Testing</li><li>Team Leadership</li>
-      </ul>
-
-      <div class="stats">
-        <div class="stat"><div class="value">~$750K</div><div class="label">Estimated annual savings</div></div>
-        <div class="stat"><div class="value">0–5</div><div class="label">Batteries tested at once, set at runtime</div></div>
-        <div class="stat"><div class="value">4</div><div class="label">Co-ops led</div></div>
-        <div class="stat"><div class="value">0</div><div class="label">Operator interventions needed</div></div>
-      </div>
     </div>
   </header>
 
-  <section>
-    <div class="container">
-      <div class="gallery" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-        <figure><img src="../assets/img/abbott-front.jpg" alt="Fixture enclosure with LCD reading 'Draining FB3 Watching...'"><figcaption>Front panel: status LCD, rotary encoder input, and controller / power connections</figcaption></figure>
-        <figure><img src="../assets/img/abbott-interior.jpg" alt="Fixture interior wiring with microcontroller and relay board"><figcaption>Interior: microcontroller, relay board, power regulation, and harnessing</figcaption></figure>
-      </div>
-    </div>
-  </section>
+  <main class="container">
+    <ul class="figures">
+      <li><strong>~$750K</strong><span>Estimated annual savings</span></li>
+      <li><strong>0–5</strong><span>Batteries per test, set at runtime</span></li>
+      <li><strong>4</strong><span>Co-ops led</span></li>
+      <li><strong>0</strong><span>Operator interventions</span></li>
+    </ul>
 
-  <section>
-    <div class="container prose">
-      <h2>The Problem</h2>
+    <!-- To add a video: uncomment and paste a YouTube link into data-youtube
+    <div class="video" data-youtube="https://youtu.be/XXXXXXXXXXX" data-title="LVAD fixture demo"></div>
+    -->
+
+    <div class="prose">
+      <figure class="gallery" style="grid-template-columns:1fr; margin-top:0;">
+        <img src="../assets/img/abbott-interior.jpg" alt="Fixture interior wiring with microcontroller and relay board">
+        <figcaption>Inside the enclosure: microcontroller, relay board, power regulation, and harnessing.</figcaption>
+      </figure>
+
+      <h2>The problem</h2>
       <p>
-        Testing LVAD batteries over their lifetime means running them through thousands of charge and discharge
-        cycles. Before this project, an operator had to step in by hand to keep each test going. An automated
-        fixture had been started to fix this, but it had been stalled since 2023.
+        Long-term LVAD testing means power cycling the system thousands of times. Before this project, an operator
+        had to step in by hand to keep each test going. An automated fixture had been started to fix this, but it
+        had been stalled since 2023.
       </p>
+      <p class="tools">Tools: Arduino and C++, relay control, microSD data logging, hardware design, verification testing</p>
 
-      <h2>What I Did</h2>
+      <h2>What I did</h2>
       <ul>
         <li><strong>Led the team:</strong> I coordinated four co-ops to finish the fixture and took it from a stalled
           prototype to a working test system that runs on its own.</li>
@@ -82,7 +89,7 @@
         configurations without being redesigned.
       </p>
 
-      <h2>Other Co-op Work</h2>
+      <h2>Other co-op work</h2>
       <p>
         I also calibrated equipment and ran HeartMate 3 LVAD verification tests. I ran outflow graft permeability
         tests as well, which evaluate how the sealant performs under physiological flow.
@@ -90,16 +97,14 @@
 
       <p class="note">Some details are left out to protect Abbott's proprietary and confidential information.</p>
     </div>
-  </section>
 
-  <section>
-    <div class="container">
-      <div class="next-project">
-        <a href="../index.html#projects">← All projects</a>
-        <a href="robotic-arm.html">Next: 4-DOF Robotic Arm →</a>
+    <section class="section" style="margin-top:72px;">
+      <div class="pager">
+        <a href="../index.html#projects">All projects</a>
+        <a href="robotic-arm.html">Next: 4-DOF Robotic Arm</a>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
     <div class="container">
