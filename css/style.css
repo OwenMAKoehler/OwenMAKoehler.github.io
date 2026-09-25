@@ -180,6 +180,11 @@ div.render video { padding: 0; }
 .gallery .render { aspect-ratio: 1 / 1; }
 div.project-render { aspect-ratio: 16 / 9; margin-bottom: 56px; }
 
+/* Build photos: 3 columns, with one tall photo spanning two rows in the middle */
+.gallery.build { grid-template-columns: repeat(3, 1fr); }
+.gallery.build .tall { grid-row: span 2; display: flex; flex-direction: column; }
+.gallery.build .tall img { flex: 1 1 auto; height: 100px; aspect-ratio: auto; } /* small base height so it fills the rows instead of sizing them */
+
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-top: 40px; }
 .split .prose { margin: 0; }
 .split .prose h2 { margin-top: 0; }
@@ -213,6 +218,7 @@ footer .container { display: flex; justify-content: space-between; flex-wrap: wr
   .figures li:nth-child(3) { border-left: 0; }
   .gallery.wide { grid-template-columns: 1fr; }
   .split { grid-template-columns: 1fr; }
+  .gallery.build { grid-template-columns: repeat(2, 1fr); }
   div.project-render { aspect-ratio: 1 / 1; }
 }
 @media (max-width: 600px) {
@@ -220,6 +226,9 @@ footer .container { display: flex; justify-content: space-between; flex-wrap: wr
   .nav .container { grid-template-columns: auto 1fr; }
   .nav-links { display: none; }
   .tiles { grid-template-columns: 1fr; }
+  .gallery.build { grid-template-columns: 1fr; }
+  .gallery.build .tall { grid-row: auto; }
+  .gallery.build .tall img { flex: none; height: auto; aspect-ratio: 3 / 4; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
