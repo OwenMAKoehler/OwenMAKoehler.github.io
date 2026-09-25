@@ -44,20 +44,14 @@
   </header>
 
   <main class="container">
+    <div class="render project-render"><img src="../assets/img/cad-arm-iso.png" alt="SolidWorks render of the full robotic arm assembly"></div>
+
     <ul class="figures">
       <li><strong>270 mm</strong><span>Reach</span></li>
       <li><strong>~500 g</strong><span>Payload</span></li>
       <li><strong>~1 mm</strong><span>Repeatability</span></li>
       <li><strong>&lt; $200</strong><span>Total cost</span></li>
     </ul>
-
-    <!-- To use YouTube: paste the video link into data-youtube, e.g. data-youtube="https://youtu.be/XXXXXXXXXXX" -->
-    <div class="video" data-youtube="" data-title="Robotic arm pick-and-place demo">
-      <video controls playsinline preload="metadata" poster="../assets/img/arm-demo-poster.jpg">
-        <source src="../assets/video/arm-demo.mp4" type="video/mp4">
-      </video>
-    </div>
-    <p class="caption">The arm running a recorded pick-and-place route from the controller.</p>
 
     <div class="prose">
       <h2>Overview</h2>
@@ -69,9 +63,27 @@
       <p class="tools">Tools: SolidWorks, NEMA 17 steppers, GRBL and G-code, C++, FDM 3D printing</p>
 
       <h2>Mechanical design</h2>
+      <p>I modeled the full assembly in SolidWorks before printing anything.</p>
+    </div>
+
+    <div class="split">
+      <div class="render">
+        <video autoplay muted loop playsinline preload="auto" aria-label="Animated exploded view of the shoulder cycloidal reducer">
+          <source src="../assets/video/cad-shoulder-exploded.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="prose">
+        <h2>Cycloidal reducers</h2>
+        <p>
+          I designed cycloidal gearboxes for the NEMA 17 steppers to get a high reduction ratio with very little
+          backlash. The joints can still be backdriven by hand. The animation shows the shoulder reducer
+          coming apart: the bolts and retaining ring, the bearing, and the lobed cycloidal disc inside its ring-pin housing.
+        </p>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top:40px;">
       <ul>
-        <li><strong>Cycloidal reducers:</strong> I designed cycloidal gearboxes for the NEMA 17 steppers to get a
-          high reduction ratio with very little backlash. The joints can still be backdriven by hand.</li>
         <li><strong>Modular actuators:</strong> The base and shoulder joints are self-contained, bearing-supported
           modules that bolt together. I weighed each module during the build to keep the arm's mass in check.</li>
         <li><strong>Compliant gripper:</strong> A servo drives a geared parallel-linkage gripper. Its flexible ribbed
@@ -82,6 +94,17 @@
     </div>
 
     <div class="gallery">
+      <figure><div class="render"><img src="../assets/img/cad-arm-side.png" alt="Side view render of the arm"></div><figcaption>Side view of the assembly</figcaption></figure>
+      <figure><div class="render"><img src="../assets/img/cad-arm-rear.png" alt="Rear three-quarter render of the arm"></div><figcaption>Rear view showing the joint stack</figcaption></figure>
+      <figure><div class="render"><img src="../assets/img/cad-gripper.png" alt="Close-up render of the servo-driven gripper linkage"></div><figcaption>Gripper linkage, servo, and ribbed compliant fingers</figcaption></figure>
+    </div>
+
+    <div class="prose">
+      <h2>The build</h2>
+      <p>Everything was printed and assembled at home. I weighed each actuator as I went to keep the arm light enough for its motors.</p>
+    </div>
+
+    <div class="gallery">
       <figure><img src="../assets/img/arm-base-reducer.jpg" alt="Base cycloidal reducer on a scale reading 187 g"><figcaption>Base cycloidal reducer (187 g)</figcaption></figure>
       <figure><img src="../assets/img/arm-shoulder-actuator.jpg" alt="Shoulder actuator on a scale reading 569 g"><figcaption>Shoulder actuator module (569 g)</figcaption></figure>
       <figure><img src="../assets/img/arm-base-shoulder.jpg" alt="Assembled base and shoulder joints"><figcaption>Base and shoulder assembly during the build</figcaption></figure>
@@ -89,6 +112,17 @@
       <figure><img src="../assets/img/arm-completed.jpg" alt="Completed robotic arm"><figcaption>The completed arm</figcaption></figure>
       <figure><img src="../assets/img/arm-with-gui.jpg" alt="Robotic arm next to a laptop running the controller"><figcaption>The arm with the controller running on a laptop</figcaption></figure>
     </div>
+
+    <div class="prose">
+      <h2>In action</h2>
+    </div>
+    <!-- To use YouTube: paste the video link into data-youtube, e.g. data-youtube="https://youtu.be/XXXXXXXXXXX" -->
+    <div class="video" data-youtube="" data-title="Robotic arm pick-and-place demo">
+      <video controls playsinline preload="metadata" poster="../assets/img/arm-demo-poster.jpg">
+        <source src="../assets/video/arm-demo.mp4" type="video/mp4">
+      </video>
+    </div>
+    <p class="caption">The arm running a recorded pick-and-place route from the controller.</p>
 
     <div class="prose">
       <h2>Controls and software</h2>

@@ -31,6 +31,22 @@
     box.replaceChildren(cover);
   });
 
+  // ---- Looping animations: stop and show controls for visitors who prefer reduced motion ----
+  // Otherwise play them only while they're on screen.
+  const loops = document.querySelectorAll("video[autoplay]");
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    loops.forEach((v) => {
+      v.pause();
+      v.removeAttribute("autoplay");
+      v.controls = true;
+    });
+  } else if ("IntersectionObserver" in window) {
+    const watcher = new IntersectionObserver((entries) => {
+      entries.forEach((e) => (e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause()));
+    }, { threshold: 0.25 });
+    loops.forEach((v) => watcher.observe(v));
+  }
+
   // ---- Lightbox: click a gallery image to view it full-size ----
   const box = document.createElement("div");
   box.className = "lightbox";

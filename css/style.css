@@ -163,6 +163,26 @@ figure { margin: 0; }
   border-radius: var(--r-md); cursor: zoom-in; background: var(--fog);
 }
 .gallery.wide img { aspect-ratio: 16 / 9; object-position: top; }
+/* CAD renders: a fog frame, with the render's white background multiplied into it */
+div.render {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--r-md); overflow: hidden;
+  background: var(--fog);
+}
+div.render img, div.render video {
+  width: 100%; height: 100%;
+  object-fit: contain; padding: 4%;
+  aspect-ratio: auto; border-radius: 0; background: none;
+  mix-blend-mode: multiply;
+}
+div.render video { padding: 0; }
+.hero .render { aspect-ratio: 1 / 1; border-radius: var(--r-lg); }
+.gallery .render { aspect-ratio: 1 / 1; }
+div.project-render { aspect-ratio: 16 / 9; margin-bottom: 56px; }
+
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-top: 40px; }
+.split .prose { margin: 0; }
+.split .prose h2 { margin-top: 0; }
 .gallery figcaption { font-size: .9rem; color: var(--graphite); margin-top: 10px; }
 
 .note { font-size: .92rem; color: var(--graphite); border-top: 1px solid var(--hairline); padding-top: 16px; margin-top: 40px; }
@@ -187,11 +207,13 @@ footer .container { display: flex; justify-content: space-between; flex-wrap: wr
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
   .hero .container { grid-template-columns: 1fr; gap: 36px; padding-top: 24px; padding-bottom: 64px; }
-  .hero-photo { aspect-ratio: 4 / 3; }
+  .hero .render { aspect-ratio: 4 / 3; }
   .about { grid-template-columns: 1fr; gap: 40px; }
   .figures { grid-template-columns: repeat(2, 1fr); row-gap: 24px; }
   .figures li:nth-child(3) { border-left: 0; }
   .gallery.wide { grid-template-columns: 1fr; }
+  .split { grid-template-columns: 1fr; }
+  div.project-render { aspect-ratio: 1 / 1; }
 }
 @media (max-width: 600px) {
   .container { padding: 0 20px; }
