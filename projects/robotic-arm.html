@@ -101,7 +101,7 @@
 
     <div class="gallery">
       <figure><div class="render"><img src="../assets/img/cad-arm-side.png" alt="Side view render of the arm"></div><figcaption>Side view of the assembly</figcaption></figure>
-      <figure><div class="render"><img src="../assets/img/cad-arm-rear.png" alt="Rear three-quarter render of the arm"></div><figcaption>Rear view showing the joint stack</figcaption></figure>
+      <figure><div class="render"><img src="../assets/img/cad-arm-rear.png" alt="Rear three-quarter render of the arm"></div><figcaption>Isometric view showing the joint stack</figcaption></figure>
       <figure><div class="render"><img src="../assets/img/cad-gripper.png" alt="Close-up render of the servo-driven gripper linkage"></div><figcaption>Gripper linkage, servo, and ribbed compliant fingers</figcaption></figure>
     </div>
 
@@ -116,7 +116,7 @@
       <figure class="tall"><img src="../assets/img/arm-completed.jpg" style="object-position: 40% 50%;" alt="Completed robotic arm"><figcaption>The completed arm</figcaption></figure>
       <figure><img src="../assets/img/arm-base-shoulder.jpg" style="object-position: 50% 27%;" alt="Assembled base and shoulder joints"><figcaption>Base and shoulder assembly during the build</figcaption></figure>
       <figure><img src="../assets/img/arm-gripper.jpg" style="object-position: 50% 41%;" alt="Servo-driven compliant gripper"><figcaption>Servo-driven compliant gripper</figcaption></figure>
-      <figure><img src="../assets/img/arm-with-gui.jpg" alt="Robotic arm next to a laptop running the controller"><figcaption>The arm with the controller running on a laptop</figcaption></figure>
+      <figure><img src="../assets/img/arm-with-gui.jpg" alt="Robotic arm next to a laptop running the controller"><figcaption>The arm with the controller running on my laptop</figcaption></figure>
     </div>
 
     <div class="prose">
@@ -133,14 +133,15 @@
     <div class="prose">
       <h2>Controls and software</h2>
       <ul>
-        <li><strong>Firmware:</strong> The arm runs GRBL on an Arduino with a CNC shield and stepper drivers. I modified
-          the firmware so the gripper servo is controlled by the same command stream as the steppers.</li>
+        <li><strong>Firmware:</strong> The arm runs GRBL on an Arduino UNO with a CNC shield and DRV8825 stepper drivers. I modified
+          the firmware so the wrist stepper and gripper servo is controlled by the same command stream as the base, shoulder, and elbow steppers.</li>
         <li><strong>Inverse kinematics:</strong> I implemented IK so I can command the arm to a target XYZ position.
           The solver checks whether the point is reachable before it moves the arm.</li>
-        <li><strong>Custom controller:</strong> I wrote a browser app that connects to the arm over USB serial.
-          It shows a live 3D model of the arm and has these tabs:
+        <li><strong>Custom controller:</strong> I built a browser-based control app that connects to the arm over USB serial and sends motion commands as G-code. 
+          It displays a live 3D model of the arm, loaded from a URDF file. I intentionally kept the model simple, since its purpose is to show the arm's 
+          position and reach in real time rather than detailed geometry. The app is organized into four tabs:
           <ul>
-            <li><em>Jog:</em> move each joint, set the homing position, and open or close the gripper</li>
+            <li><em>Jog:</em> move each joint, set the folded homing position, and open or close the gripper</li>
             <li><em>Move / IK:</em> go to specific joint angles or solve for an XYZ target</li>
             <li><em>Routes:</em> save waypoints with gripper actions, then play back a pick-and-place route</li>
             <li><em>Config:</em> load a URDF model and set speed, acceleration, and gearing for each joint</li>
@@ -160,6 +161,26 @@
       <figure><img src="../assets/img/gui-jog.jpg" alt="Controller Jog tab"><figcaption>Jog: joint control, homing, and gripper</figcaption></figure>
       <figure><img src="../assets/img/gui-ik.jpg" alt="Controller Move / IK tab"><figcaption>Move / IK: joint-angle moves and XYZ inverse kinematics</figcaption></figure>
       <figure><img src="../assets/img/gui-config.jpg" alt="Controller Config tab"><figcaption>Config: URDF model, motion limits, and joint gearing</figcaption></figure>
+    </div>
+
+    <div class="prose">
+      <h2>What I'd do differently</h2>
+      <p>
+        I'm happy with how the arm turned out, but the electronics were the most frustrating and limiting part of the
+        project. I built around an Arduino Uno and a CNC shield, a setup made for three-axis CNC machines rather than
+        a four-joint arm. Getting a fourth stepper and the gripper servo running meant modifying GRBL myself. It worked,
+        but I should have chosen a different setup from the start. If I built it again, I would change three things:
+      </p>
+      <ul>
+        <li><strong>Custom driver boards on each motor:</strong> I would design a small PCB that screws onto the back
+          of each stepper and carries its own driver. Each joint would then only need a power cable and a data cable,
+          both of which could fit inside the joints instead of running outside the arm. The motors could daisy-chain the
+          data stream, so adding another stepper would mean plugging it into the last one.</li>
+        <li><strong>ESP32 instead of Arduino:</strong> An ESP32 has more processing power and I/O than the Uno. It
+          would also let me add Wi-Fi control, so the arm wouldn't need to be tethered to my laptop over USB.</li>
+        <li><strong>A fifth degree of freedom:</strong> With four joints, the gripper can't approach objects from the
+          side. A fifth joint would let it reach things from the side as well as from above.</li>
+      </ul>
     </div>
 
     <section class="section" style="margin-top:72px;">
