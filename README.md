@@ -25,7 +25,7 @@ A test fixture that automates power cycling on an LVAD system which enables long
 - Served as technical lead on a team of 4 co-ops to revive a project that had been stalled since 2023
 - Added microSD data logging and rotary-encoder input so tests can be configured at the fixture
 - Rewrote the Arduino C++ firmware from scratch with a modular design that handles 0 to 5 batteries
-- Eliminated manual operator intervention, saving an estimated $750K per year
+- Eliminated manual operator intervention, saving an estimated $500K in testing costs
 
 
 ## Skills
