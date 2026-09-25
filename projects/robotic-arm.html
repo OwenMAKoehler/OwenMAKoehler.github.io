@@ -37,7 +37,7 @@
       <div class="where">Independent project, April to August 2026</div>
       <p class="lead">
         I designed, 3D-printed, and built this desktop robotic arm for under $200. It uses custom cycloidal reducers,
-        inverse kinematics, modified GRBL firmware, and a browser-based controller I wrote for programming
+        inverse kinematics, modified GRBL firmware, and a browser-based controller I made for programming
         pick-and-place routes.
       </p>
     </div>
@@ -57,13 +57,17 @@
       <h2>Overview</h2>
       <p>
         I wanted to build an arm that behaves like a real industrial robot while staying cheap and printable at home.
-        The main design problem was getting enough torque and stiffness out of hobby-grade NEMA 17 steppers without
-        adding backlash. I solved it by designing my own cycloidal reducers and building each joint as its own actuator.
+        The main design problem was getting enough torque and stiffness out of my NEMA 17 stepper motors without
+        adding too much backlash. I solved it by designing my own 19:1 cycloidal reducers and building each joint as its own actuator.
       </p>
       <p class="tools">Tools: SolidWorks, NEMA 17 steppers, GRBL and G-code, C++, FDM 3D printing</p>
 
       <h2>Mechanical design</h2>
-      <p>I modeled the full assembly in SolidWorks before printing anything.</p>
+      <p>I modeled the full assembly in SolidWorks before printing anything, which let me check joint clearances and range of motion 
+        digitally. The hardest part was getting the proper tolerances on the cycloidal reducers. Too tight and they bind, too loose and they introduce to much backlash. I printed 
+        and tested multiple versions, tuning the clearances between the cycloidal disc and ring pins until the joints ran smoothly while 
+        staying backdrivable.
+      </p>
     </div>
 
     <div class="split">
@@ -75,21 +79,23 @@
       <div class="prose">
         <h2>Cycloidal reducers</h2>
         <p>
-          I designed cycloidal gearboxes for the NEMA 17 steppers to get a high reduction ratio with very little
-          backlash. The joints can still be backdriven by hand. The animation shows the shoulder reducer
-          coming apart: the bolts and retaining ring, the bearing, and the lobed cycloidal disc inside its ring-pin housing.
+          I chose to use cycloidal gearboxes for my arm to get a high reduction ratio in a compact space with very little
+          backlash, while maintaining backdrivability. Planetary gearboxes can't easily achieve the same reduction ratio, and strain 
+          wave gears are not as accessible for 3D printing. The animation shows the shoulder reducer coming apart: the bolts and 
+          retaining ring, the bearings, the eccentric shaft, and the offset lobed cycloidal discs inside their ring-pin housing.
         </p>
       </div>
     </div>
 
     <div class="prose" style="margin-top:40px;">
       <ul>
-        <li><strong>Modular actuators:</strong> The base and shoulder joints are self-contained, bearing-supported
-          modules that bolt together. I weighed each module during the build to keep the arm's mass in check.</li>
-        <li><strong>Compliant gripper:</strong> A servo drives a geared parallel-linkage gripper. Its flexible ribbed
-          fingers conform to the object for a secure grip.</li>
-        <li><strong>Fully 3D-printed structure:</strong> All structural parts were designed in CAD and printed,
-          which kept the total cost under $200.</li>
+        <li><strong>Modular actuators:</strong> The base and shoulder joints are self-contained, bearing-supported 
+          modules that bolt together. I weighed each module during the build to keep the mass in check, which was a concern with 
+          my low torque motors.</li>
+        <li><strong>Compliant gripper:</strong> An SG90 servo drives a geared parallel-linkage gripper. Its flexible ribbed
+          TPU fingers conform to the object for a secure grip.</li>
+        <li><strong>Fully 3D-printed structure:</strong> All structural parts were designed in CAD and printed in PLA,
+          which kept the production cost low.</li>
       </ul>
     </div>
 
