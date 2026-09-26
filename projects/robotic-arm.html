@@ -64,7 +64,7 @@
 
       <h2>Mechanical design</h2>
       <p>I modeled the full assembly in SolidWorks before printing anything, which let me check joint clearances and range of motion 
-        digitally. The hardest part was getting the proper tolerances on the cycloidal reducers. Too tight and they bind, too loose and they introduce to much backlash. I printed 
+        digitally. The hardest part was getting the proper tolerances on the cycloidal reducers; too tight and they bind, too loose and they introduce backlash. I printed 
         and tested multiple versions, tuning the clearances between the cycloidal disc and ring pins until the joints ran smoothly while 
         staying backdrivable.
       </p>
@@ -94,7 +94,7 @@
           my low torque motors.</li>
         <li><strong>Compliant gripper:</strong> An SG90 servo drives a geared parallel-linkage gripper. Its flexible ribbed
           TPU fingers conform to the object for a secure grip.</li>
-        <li><strong>Fully 3D-printed structure:</strong> All structural parts were designed in CAD and printed in PLA,
+        <li><strong>Fully 3D-printed structure:</strong> All structural parts were designed in CAD and printed in PLA, except for the compliant fingers,
           which kept the production cost low.</li>
       </ul>
     </div>
@@ -134,7 +134,7 @@
       <h2>Controls and software</h2>
       <ul>
         <li><strong>Firmware:</strong> The arm runs GRBL on an Arduino UNO with a CNC shield and DRV8825 stepper drivers. I modified
-          the firmware so the wrist stepper and gripper servo is controlled by the same command stream as the base, shoulder, and elbow steppers.</li>
+          the firmware so the wrist stepper and gripper servo are controlled by the same command stream as the base, shoulder, and elbow steppers.</li>
         <li><strong>Inverse kinematics:</strong> I implemented IK so I can command the arm to a target XYZ position.
           The solver checks whether the point is reachable before it moves the arm.</li>
         <li><strong>Custom controller:</strong> I built a browser-based control app that connects to the arm over USB serial and sends motion commands as G-code. 
