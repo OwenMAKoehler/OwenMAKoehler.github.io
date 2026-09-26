@@ -37,7 +37,7 @@
       <div class="where">Abbott Heart Failure, Systems Engineering Co-op, January to August 2026</div>
       <p class="lead">
         This fixture automates power cycling on an LVAD system, which makes long-term testing possible without an
-        operator. The project had been stalled since 2023. I was the technical lead on a team of four co-ops,
+        operator. The project was started in 2023, but had stalled and never been completed. I was the technical lead on a team of four co-ops,
         responsible for redesigning the hardware, rewriting the firmware, and getting it running.
       </p>
     </div>
@@ -63,9 +63,8 @@
 
       <h2>The problem</h2>
       <p>
-        Long-term LVAD testing means power cycling the system thousands of times. Before this project, an operator
-        had to step in by hand to keep each test going. An automated fixture had been started to fix this, but it
-        had been stalled since 2023.
+        Long-term LVAD testing means switching the power source regularly to keep the controller alive. Before this project, an operator
+        had to step in by hand to keep each test going. An automated fixture had been started to fix this, but it was never finished.
       </p>
       <p class="tools">Tools: Arduino and C++, relay control, microSD data logging, hardware design, verification testing</p>
 
@@ -78,9 +77,52 @@
           before.</li>
         <li><strong>Rewrote the firmware from scratch:</strong> I rebuilt the control software in Arduino C++ with a
           modular architecture. It adapts to anywhere from 0 to 5 batteries based on what the user enters.</li>
-        <li><strong>Built automatic logging:</strong> The fixture writes data and debug logs to microSD in a format
-          that opens directly in Excel. Engineers can then plot battery capacity against cycle count.</li>
+        <li><strong>Built automatic logging:</strong> The fixture writes two files to a microSD card. DRAIN.CSV records
+          how long each battery and the controller lasted on every drain cycle. It opens directly in Excel, so
+          engineers can plot battery capacity against cycle count.</li>
+        <li><strong>Added a detailed debug log:</strong> DEBUG.LOG timestamps everything the fixture does: each boot,
+          which batteries and cycle type were selected, every menu action, power source switches, and when each drain
+          starts. It gives a complete picture of what the fixture was doing and when. Every power-up is numbered by a
+          boot counter saved in the Arduino Mega's permanent memory (EEPROM), so restarts are easy to spot.</li>
+        <li><strong>Made the SD card removable mid-test:</strong> The card can be pulled out at any time to check the
+          data. While it's out, new lines are held in RAM and written as soon as it's plugged back in, so no data is
+          missed.</li>
       </ul>
+
+      <figure class="file">
+        <figcaption class="file-name">DRAIN.CSV <span>drain time per cycle, in seconds</span></figcaption>
+        <div class="file-body">
+          <table>
+            <thead><tr><th>Cycle</th><th>Battery 1</th><th>Battery 2</th><th>Battery 3</th><th>Battery 4</th><th>Battery 5</th><th>Controller</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>33424</td><td>32560</td><td>34229</td><td>32368</td><td></td><td>29341</td></tr>
+              <tr><td>2</td><td>32083</td><td>31813</td><td>34211</td><td>33306</td><td></td><td>29571</td></tr>
+              <tr><td>3</td><td>31532</td><td>31526</td><td>34105</td><td>31288</td><td></td><td>29542</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </figure>
+      <p class="caption">Three cycles of data from a four-battery test. The empty column is the unused fifth slot.</p>
+
+      <figure class="file">
+        <figcaption class="file-name">DEBUG.LOG <span>milliseconds, elapsed time, event</span></figcaption>
+        <div class="file-body">
+<pre>1205,0:00:01,=== Boot #28 (free RAM 5372 B) ===
+1229,0:00:01,DRAIN.CSV has 1 cycles - continuing at cycle 2
+4922,0:00:04,Setup complete
+132468,0:02:12,Selected 5 batteries, Baseline Cycle
+132491,0:02:12,Baseline cycle start (free RAM 5277 B)
+133534,0:02:13,ACPS on, batteries charging
+180870,0:03:00,Menu action: Skip Step
+181974,0:03:01,Power source: FB1 (6h)
+190706,0:03:10,Menu action: Skip Step
+191922,0:03:11,Power source: FB2 (6h)<mark>2377389,0:39:37,SD back online (2 queued, 0 lost)</mark>691700,0:11:31,Menu action: Skip Step
+695103,0:11:35,Power source: FB3 (6h)
+2377321,0:39:37,Menu action: End Test
+2377638,0:39:37,END - test halted by user</pre>
+        </div>
+      </figure>
+      <p class="caption">One bench session. The highlighted line shows the SD card being reinserted: the two lines logged while it was out were written right after, with nothing lost.</p>
 
       <h2>Result</h2>
       <p>
