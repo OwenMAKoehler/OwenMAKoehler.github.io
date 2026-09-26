@@ -186,6 +186,15 @@ div.project-render { aspect-ratio: 16 / 9; margin-bottom: 56px; }
 .file th, .file td { padding: 6px 8px; text-align: right; white-space: nowrap; }
 .file th { font-weight: 600; color: var(--graphite); border-bottom: 1px solid var(--hairline); }
 .file th:first-child, .file td:first-child { text-align: left; }
+/* Bill of materials */
+.bom { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: .95rem; font-variant-numeric: tabular-nums; }
+.bom th, .bom td { padding: 8px 10px; text-align: right; border-bottom: 1px solid var(--hairline); }
+.bom th:first-child, .bom td:first-child { text-align: left; padding-left: 0; }
+.bom th:last-child, .bom td:last-child { padding-right: 0; }
+.bom thead th { font-size: .85rem; font-weight: 600; color: var(--graphite); border-bottom-color: var(--ink); }
+.bom tr.group th { padding-top: 22px; font-weight: 700; border-bottom: 0; }
+.bom tfoot th, .bom tfoot td { font-weight: 800; font-size: 1.05rem; border-top: 2px solid var(--ink); border-bottom: 0; }
+
 .redact { background: var(--graphite); color: transparent; border-radius: 2px; user-select: none; }
 
 /* Build photos: 3 columns, with one tall photo spanning two rows in the middle */
