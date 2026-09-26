@@ -34,7 +34,7 @@
   <header class="project-head">
     <div class="container">
       <h1>4-DOF Robotic Arm.</h1>
-      <div class="where">Independent project, April to August 2026</div>
+      <div class="where">Personal project, April to August 2026</div>
       <p class="lead">
         I designed, 3D-printed, and built this desktop robotic arm for under $200. It uses custom cycloidal reducers,
         inverse kinematics, modified GRBL firmware, and a browser-based controller I made for programming
@@ -91,23 +91,23 @@
       <ul>
         <li><strong>Modular actuators:</strong> The base and shoulder joints are self-contained, bearing-supported 
           modules that bolt together. I weighed each module during the build to keep the mass in check, which was a concern with 
-          my low torque motors.</li>
+          my low-torque motors.</li>
         <li><strong>Compliant gripper:</strong> An SG90 servo drives a geared parallel-linkage gripper. Its flexible ribbed
           TPU fingers conform to the object for a secure grip.</li>
-        <li><strong>Fully 3D-printed structure:</strong> All structural parts were designed in CAD and printed in PLA, except for the compliant fingers,
+        <li><strong>Fully 3D-printed structure:</strong> All structural parts except the compliant fingers were designed in CAD and printed in PLA,
           which kept the production cost low.</li>
       </ul>
     </div>
 
     <div class="gallery">
       <figure><div class="render"><img src="../assets/img/cad-arm-side.png" alt="Side view render of the arm"></div><figcaption>Side view of the assembly</figcaption></figure>
-      <figure><div class="render"><img src="../assets/img/cad-arm-rear.png" alt="Rear three-quarter render of the arm"></div><figcaption>Isometric view showing the joint stack</figcaption></figure>
+      <figure><div class="render"><img src="../assets/img/cad-arm-rear.png" alt="Isometric render of the arm showing the joint stack"></div><figcaption>Isometric view showing the joint stack</figcaption></figure>
       <figure><div class="render"><img src="../assets/img/cad-gripper.png" alt="Close-up render of the servo-driven gripper linkage"></div><figcaption>Gripper linkage, servo, and ribbed compliant fingers</figcaption></figure>
     </div>
 
     <div class="prose">
       <h2>The build</h2>
-      <p>Everything was printed and assembled at home. I weighed each actuator as I went to keep the arm light enough for its motors.</p>
+      <p>Everything was printed and assembled at home.</p>
     </div>
 
     <!-- object-position picks which part of each photo stays in frame (horizontal vertical) -->
@@ -122,8 +122,7 @@
     <div class="prose">
       <h2>In action</h2>
     </div>
-    <!-- To use YouTube: paste the video link into data-youtube, e.g. data-youtube="https://youtu.be/XXXXXXXXXXX" -->
-    <div class="video" data-youtube="" data-title="Robotic arm pick-and-place demo">
+    <div class="video">
       <video controls playsinline preload="metadata" poster="../assets/img/arm-demo-poster.jpg">
         <source src="../assets/video/arm-demo.mp4" type="video/mp4">
       </video>
@@ -133,7 +132,7 @@
     <div class="prose">
       <h2>Controls and software</h2>
       <ul>
-        <li><strong>Firmware:</strong> The arm runs GRBL on an Arduino UNO with a CNC shield and DRV8825 stepper drivers. I modified
+        <li><strong>Firmware:</strong> The arm runs GRBL on an Arduino Uno with a CNC shield and DRV8825 stepper drivers. I modified
           the firmware so the wrist stepper and gripper servo are controlled by the same command stream as the base, shoulder, and elbow steppers.</li>
         <li><strong>Inverse kinematics:</strong> I implemented IK so I can command the arm to a target XYZ position.
           The solver checks whether the point is reachable before it moves the arm.</li>
@@ -150,7 +149,7 @@
       </ul>
     </div>
 
-    <div class="video" data-youtube="" data-title="Robotic arm controller screen recording" style="margin-top:40px;">
+    <div class="video" style="margin-top:40px;">
       <video controls playsinline preload="metadata" poster="../assets/img/arm-gui-poster.jpg">
         <source src="../assets/video/arm-gui-recording.mp4" type="video/mp4">
       </video>
@@ -186,7 +185,7 @@
     <section class="section" style="margin-top:72px;">
       <div class="pager">
         <a href="../index.html#projects">All projects</a>
-        <a href="abbott-lvad-fixture.html">Next: LVAD Power Cycling Fixture</a>
+        <a href="abbott-lvad-fixture.html">Next: LVAD Power Automation Fixture</a>
       </div>
     </section>
   </main>

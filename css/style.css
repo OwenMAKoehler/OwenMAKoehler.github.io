@@ -26,7 +26,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
-img, video, iframe { display: block; max-width: 100%; }
+img, video { display: block; max-width: 100%; }
 a { color: inherit; text-underline-offset: 3px; }
 p { margin: 0 0 1em; }
 h1, h2, h3 { margin: 0; font-weight: 800; letter-spacing: -0.02em; line-height: 1.08; }
@@ -134,23 +134,12 @@ h3 { font-size: 1.6rem; }
 
 .caption { color: var(--graphite); font-size: .9rem; text-align: center; margin-top: 12px; }
 
-/* Video: YouTube (data-youtube) or local MP4 fallback */
+/* Project videos */
 .video {
   position: relative; aspect-ratio: 16 / 9;
   border-radius: var(--r-md); overflow: hidden; background: var(--ink);
 }
-.video video, .video iframe, .video .yt-cover {
-  position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
-}
-.video video { object-fit: contain; }
-.yt-cover { padding: 0; cursor: pointer; background: var(--ink); }
-.yt-cover img { width: 100%; height: 100%; object-fit: cover; opacity: .9; }
-.yt-cover::after {
-  content: ""; position: absolute; left: 50%; top: 50%;
-  width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%;
-  background: rgba(255,255,255,.95) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z' fill='%2326324a'/%3E%3C/svg%3E") center / 34px no-repeat;
-}
-.yt-cover:hover::after { background-color: #fff; transform: scale(1.05); }
+.video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
 
 .gallery {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 32px 24px;
@@ -250,5 +239,4 @@ footer .container { display: flex; justify-content: space-between; flex-wrap: wr
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .yt-cover:hover::after { transform: none; }
 }

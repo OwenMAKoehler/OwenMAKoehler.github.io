@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Automated LVAD Power Cycling Fixture | Owen Koehler</title>
+  <title>LVAD Power Automation Fixture | Owen Koehler</title>
   <meta name="description" content="An automated LVAD power cycling fixture for long-term testing, completed during a Systems Engineering Co-op at Abbott Heart Failure.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,11 +33,11 @@
 
   <header class="project-head">
     <div class="container">
-      <h1>LVAD Power Cycling Fixture.</h1>
+      <h1>LVAD Power Automation Fixture.</h1>
       <div class="where">Abbott Heart Failure, Systems Engineering Co-op, January to August 2026</div>
       <p class="lead">
         This fixture automates power cycling on an LVAD system, which makes long-term testing possible without an
-        operator. The project was started in 2023, but had stalled and never been completed. I was the technical lead on a team of four co-ops,
+        operator. The project was started in 2023 but had stalled and never been completed. I was the technical lead on a team of four co-ops,
         responsible for redesigning the hardware, rewriting the firmware, and getting it running.
       </p>
     </div>
@@ -50,10 +50,6 @@
       <li><strong>400+ hrs</strong><span>Continuous run time</span></li>
       <li><strong>19</strong><span>Unique test cycles available</span></li>
     </ul>
-
-    <!-- To add a video: uncomment and paste a YouTube link into data-youtube
-    <div class="video" data-youtube="https://youtu.be/XXXXXXXXXXX" data-title="LVAD fixture demo"></div>
-    -->
 
     <div class="prose">
       <figure class="gallery" style="grid-template-columns:1fr; margin-top:0;">
@@ -73,8 +69,8 @@
         <li><strong>Technical lead:</strong> I led the technical work for a team of four co-ops, taking the fixture
           from a stalled prototype to a working test system that runs on its own.</li>
         <li><strong>Redesigned the hardware:</strong> I added a rotary encoder with a push-button and a microSD data-logging system.
-          Operators can now configure each test directly at the fixture, such as selecting how many batteries are present and what
-          cycle to perform, instead of reprogramming it. The original fixture also had no way to record data. My logging system saves
+          Operators can now configure each test directly at the fixture, including how many batteries are present and which
+          cycle to run, instead of reprogramming it. The original fixture also had no way to record data. My logging system saves
           results in a format that imports directly into Excel, letting engineers plot battery performance against cycle count for the first time.</li>
         <li><strong>Rewrote the firmware from scratch:</strong> I rebuilt the control software in Arduino C++ with a
           modular architecture. It adapts to anywhere from 0 to 5 batteries based on what the user enters.
