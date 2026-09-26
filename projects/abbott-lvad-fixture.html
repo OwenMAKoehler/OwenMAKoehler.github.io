@@ -77,7 +77,10 @@
           cycle to perform, instead of reprogramming it. The original fixture also had no way to record data. My logging system saves
           results in a format that imports directly into Excel, letting engineers plot battery performance against cycle count for the first time.</li>
         <li><strong>Rewrote the firmware from scratch:</strong> I rebuilt the control software in Arduino C++ with a
-          modular architecture. It adapts to anywhere from 0 to 5 batteries based on what the user enters.</li>
+          modular architecture. It adapts to anywhere from 0 to 5 batteries based on what the user enters.
+          Pressing and holding the rotary encoder during a test opens a pause menu, where the operator can skip the
+          current step, make the current cycle the last one, end the test, or cancel and resume. Every menu action is
+          recorded in the debug log.</li>
         <li><strong>Built automatic logging:</strong> The fixture writes two files to a microSD card. DRAIN.CSV records
           how long each battery and the controller lasted on every drain cycle, and DEBUG.LOG records everything else.</li>
         <li><strong>Added a detailed debug log:</strong> DEBUG.LOG timestamps everything the fixture does: each boot,
