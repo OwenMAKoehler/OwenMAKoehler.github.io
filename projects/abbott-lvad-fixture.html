@@ -106,19 +106,19 @@
       <figure class="file">
         <figcaption class="file-name">DEBUG.LOG <span>milliseconds, elapsed time, event</span></figcaption>
         <div class="file-body">
-<pre><span class="redact">XXXXXXX</span>,<span class="redact">XXXXXXX</span>,=== Boot #28 (free RAM 5372 B) ===
-<span class="redact">XXXXXXX</span>,<span class="redact">XXXXXXX</span>,DRAIN.CSV has 1 cycles - continuing at cycle 2
-<span class="redact">XXXXXXX</span>,<span class="redact">XXXXXXX</span>,Setup complete
-<span class="redact">XXXXXXX</span>,<span class="redact">XXXXXXX</span>,Selected 5 batteries, Baseline Cycle
-<span class="redact">XXXXXXX</span>,<span class="redact">XXXXXXX</span>,Baseline cycle start (free RAM 5277 B)
-<span class="redact">XXXXXXX</span>,<span class="redact">XXXXXXX</span>,Power supply on, batteries charging
-<span class="redact">XXXXXXX</span>,<span class="redact">XXXXXXX</span>,Menu action: Skip Step
-<span class="redact">XXXXXXX</span>,<span class="redact">XXXXXXX</span>,Power source: Battery 1 (<span class="redact">XX</span>)
-<span class="redact">XXXXXXX</span>,<span class="redact">XXXXXXX</span>,Menu action: Skip Step
-<span class="redact">XXXXXXX</span>,<span class="redact">XXXXXXX</span>,Power source: Battery 2 (<span class="redact">XX</span>)<mark><span class="redact">XXXXXXX</span>,<span class="redact">XXXXXXX</span>,SD back online (2 queued, 0 lost)</mark><span class="redact">XXXXXXX</span>,<span class="redact">XXXXXXX</span>,Menu action: Skip Step
-<span class="redact">XXXXXXX</span>,<span class="redact">XXXXXXX</span>,Power source: Battery 3 (<span class="redact">XX</span>)
-<span class="redact">XXXXXXX</span>,<span class="redact">XXXXXXX</span>,Menu action: End Test
-<span class="redact">XXXXXXX</span>,<span class="redact">XXXXXXX</span>,END - test halted by user</pre>
+<pre>1205,0:00:01,=== Boot #28 (free RAM 5372 B) ===
+1229,0:00:01,DRAIN.CSV has 1 cycles - continuing at cycle 2
+4922,0:00:04,Setup complete
+132468,0:02:12,Selected 5 batteries, Baseline Cycle
+132491,0:02:12,Baseline cycle start (free RAM 5277 B)
+133534,0:02:13,Power supply on, batteries charging
+180870,0:03:00,Menu action: Skip Step
+181974,0:03:01,Power source: Battery 1 (<span class="redact">XX</span>)
+190706,0:03:10,Menu action: Skip Step
+191922,0:03:11,Power source: Battery 2 (<span class="redact">XX</span>)<mark>2377389,0:39:37,SD back online (2 queued, 0 lost)</mark>691700,0:11:31,Menu action: Skip Step
+695103,0:11:35,Power source: Battery 3 (<span class="redact">XX</span>)
+2377321,0:39:37,Menu action: End Test
+2377638,0:39:37,END - test halted by user</pre>
         </div>
       </figure>
       <p class="caption">One bench session. The highlighted line shows the SD card being reinserted: the two lines logged while it was out were written right after, with nothing lost.</p>
