@@ -183,9 +183,10 @@ div.project-render { aspect-ratio: 16 / 9; margin-bottom: 56px; }
 .file pre { padding: 14px 16px; }
 .file mark { display: block; margin: 0 -16px; padding: 0 16px; background: #dde3ee; color: inherit; }
 .file table { border-collapse: collapse; width: 100%; }
-.file th, .file td { padding: 6px 12px; text-align: right; white-space: nowrap; }
+.file th, .file td { padding: 6px 8px; text-align: right; white-space: nowrap; }
 .file th { font-weight: 600; color: var(--graphite); border-bottom: 1px solid var(--hairline); }
 .file th:first-child, .file td:first-child { text-align: left; }
+.redact { background: var(--graphite); color: transparent; border-radius: 2px; user-select: none; }
 
 /* Build photos: 3 columns, with one tall photo spanning two rows in the middle */
 .gallery.build { grid-template-columns: repeat(3, 1fr); }
